@@ -10,13 +10,13 @@ const NOTIFICATION_OPENED_SIGNAL_NAME = "notification_opened"
 const PERMISSION_GRANTED_SIGNAL_NAME = "permission_granted"
 const PERMISSION_DENIED_SIGNAL_NAME = "permission_denied"
 
-const PLUGIN_SINGLETON_NAME: String = "@pluginName@"
+const PLUGIN_SINGLETON_NAME: String = "GodotAndroidNotificationSchedulerPlugin"
 const DEFAULT_NOTIFICATION_ID: int = -1
 
 var _plugin_singleton: Object
 
 
-func init() -> void:
+func _init() -> void:
 	if _plugin_singleton == null:
 		if Engine.has_singleton(PLUGIN_SINGLETON_NAME):
 			_plugin_singleton = Engine.get_singleton(PLUGIN_SINGLETON_NAME)

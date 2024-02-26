@@ -1,25 +1,21 @@
 @tool
 extends EditorPlugin
 
-const PLUGIN_NODE_TYPE_NAME = "NotificationScheduler"
-const PLUGIN_PARENT_NODE_TYPE = "Node"
-const PLUGIN_NAME: String = "@pluginName@"
-const PLUGIN_VERSION: String = "@pluginVersion@"
-const RESULT_ACTIVITY_CLASS_PATH: String = "@resultClass@"
-const RECEIVER_CLASS_PATH: String = "@receiverClass@"
-const SERVICE_CLASS_PATH: String = "@serviceClass@"
+const PLUGIN_NAME: String = "GodotAndroidNotificationSchedulerPlugin"
+const PLUGIN_VERSION: String = "1.0"
+const RESULT_ACTIVITY_CLASS_PATH: String = "org.godotengine.plugin.android.notification.ResultActivity"
+const RECEIVER_CLASS_PATH: String = "org.godotengine.plugin.android.notification.NotificationReceiver"
+const SERVICE_CLASS_PATH: String = "org.godotengine.plugin.android.notification.NotificationService"
 
 var export_plugin: AndroidExportPlugin
 
 
 func _enter_tree() -> void:
-	add_custom_type(PLUGIN_NODE_TYPE_NAME, PLUGIN_PARENT_NODE_TYPE, preload("NotificationScheduler.gd"), preload("icon.png"))
 	export_plugin = AndroidExportPlugin.new()
 	add_export_plugin(export_plugin)
 
 
 func _exit_tree() -> void:
-	remove_custom_type(PLUGIN_NODE_TYPE_NAME)
 	remove_export_plugin(export_plugin)
 	export_plugin = null
 
